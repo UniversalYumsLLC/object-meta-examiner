@@ -1,0 +1,21 @@
+{
+  "name": "extension/order-meta-inspector",
+  "description": "WooCommerce plugin",
+  "autoload": {
+    "psr-4": {
+      "ObjectMetaExaminer\\": "includes/"
+    }
+  },
+  "require-dev": {
+    "automattic/jetpack-autoloader": "^2",
+    "automattic/vipwpcs": "^3.0.1",
+    "dealerdirect/phpcodesniffer-composer-installer": "^1.0.0",
+    "yoast/phpunit-polyfills": "^2.0.0"
+  },
+  "config": {
+    "allow-plugins": {
+      "automattic/jetpack-autoloader": true,
+      "dealerdirect/phpcodesniffer-composer-installer": true
+    }
+  }
+}
