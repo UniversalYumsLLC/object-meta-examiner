@@ -1,9 +1,9 @@
 {
-  "name": "extension/order-meta-inspector",
+  "name": "extension/meta-viewer",
   "description": "WooCommerce plugin",
   "autoload": {
     "psr-4": {
-      "ObjectMetaExaminer\\": "includes/"
+      "MetaViewer\\": "includes/"
     }
   },
   "require-dev": {

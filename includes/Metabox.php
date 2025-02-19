@@ -1,10 +1,10 @@
 <?php
 /**
- * Our abstract Metabox class which is extended by the Display class.
+ * Our abstract Metabox class which is extended by the View class.
  *
- * @package ObjectMetaExaminer
+ * @package OrderMetaViewer
  */
-namespace ObjectMetaExaminer;
+namespace MetaViewer;
 
 abstract class Metabox {
 
@@ -13,7 +13,7 @@ abstract class Metabox {
 	 *
 	 * @var array
 	 */
-	protected $object_types = [];
+	protected $object_types = array();
 
 	/**
 	 * Metabox ID.
@@ -59,7 +59,7 @@ abstract class Metabox {
 		$this->context      = $context;
 		$this->priority     = $priority;
 
-		add_action( 'add_meta_boxes', [ $this, 'register_metabox' ], 10, 2 );
+		add_action( 'add_meta_boxes', array( $this, 'register_metabox' ), 10, 2 );
 	}
 
 	/**
@@ -68,7 +68,7 @@ abstract class Metabox {
 	 * @param string $object_type Object Type.
 	 */
 	public function add_meta_box( string $object_type ) {
-		add_meta_box( $this->id, $this->title, [ $this, 'render' ], $object_type, $this->context, $this->priority );
+		add_meta_box( $this->id, $this->title, array( $this, 'render' ), $object_type, $this->context, $this->priority );
 	}
 
 	/**
@@ -98,7 +98,7 @@ abstract class Metabox {
 	 *
 	 * @return bool
 	 */
-	public function show_metabox( $object_type, $object ) : bool {
+	public function show_metabox( $object_type, $object ): bool {
 		return true;
 	}
 
@@ -122,5 +122,4 @@ abstract class Metabox {
 
 		return $type;
 	}
-
 }

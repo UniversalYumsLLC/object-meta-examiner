@@ -1,17 +1,17 @@
 <?php
 /**
- * Plugin Name:       Object Meta Examiner
+ * Plugin Name:       Meta Viewer
  * Plugin URI:        https://www.universalyums.com
  * Description:       Displays the meta fields used for WooCommerce orders and subscriptions.
  * Version:           0.1.0
  * Author:            Universal Yums
  * Author URI:        https://www.universalyums.com
- * Text Domain:       object-meta-examiner
+ * Text Domain:       meta-viewer
  * Domain Path:       /languages
  * License:           GNU General Public License v3.0
  * License URI:       http://www.gnu.org/licenses/gpl-3.0.html
  *
- * @package ObjectMetaExaminer
+ * @package MetaViewer
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -19,12 +19,12 @@ defined( 'ABSPATH' ) || exit;
 // Autoload Dependencies
 require_once plugin_dir_path( __FILE__ ) . 'vendor/autoload_packages.php';
 
-use ObjectMetaExaminer\Display;
+use MetaViewer\View;
 
 /**
  * Main Plugin Class.
  */
-class ObjectMetaExaminer {
+class MetaViewer {
 	/**
 	 * Singleton instance.
 	 *
@@ -58,7 +58,7 @@ class ObjectMetaExaminer {
 	 */
 	private function init_hooks(): void {
 		load_plugin_textdomain( 'object-meta-examiner', false, plugin_basename( __DIR__ ) . '/languages' );
-		new Display();
+		new View();
 	}
 }
 
@@ -68,6 +68,6 @@ class ObjectMetaExaminer {
  * @return void
  */
 function object_meta_examiner_init(): void {
-	ObjectMetaExaminer::instance();
+	MetaViewer::instance();
 }
 add_action( 'plugins_loaded', 'object_meta_examiner_init' );
